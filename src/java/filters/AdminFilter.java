@@ -47,6 +47,7 @@ public class AdminFilter implements Filter
         //if user isn't even logged in they don't reach this point.
         if (new UserDB().get(email).getRole().getRoleId() != 1)
         {
+            //printout for debugging purposes (infinite redirects)
             System.out.println(email + " is NOT an admin, redirecting to notes page");
             httpResponse.sendRedirect("notes");
             return;
